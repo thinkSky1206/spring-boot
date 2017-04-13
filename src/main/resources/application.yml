@@ -1,24 +1,32 @@
 spring:
+
   h2:
     console:
       enabled: true
       path: /h2
+
   #数据源
   datasource:
     url: jdbc:h2:~/test
     driver-class-name: org.h2.Driver
     username: sa
     password:
+
   #模板
   thymeleaf:
     cache: false
+
   #热更新
   devtools:
     livereload:
       enabled: true
+
   #多坏境配置
   profiles:
     active: prod
+
+  resources:
+       static-locations: classpath:/html/,classpath:/static/
 
 security:
   user:
@@ -35,4 +43,4 @@ logging:
 #     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 # file: /application.log
 server:
-  port: 8080
+  port: 9999
