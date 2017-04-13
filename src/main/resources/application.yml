@@ -23,16 +23,16 @@ spring:
 
   #多坏境配置
   profiles:
-    active: prod
+    active: dev
 
   resources:
        static-locations: classpath:/html/,classpath:/static/
 
-security:
-  user:
-    name: liuwp
-    password: 123456
-    role: admin
+#security:
+#  user:
+#    name: liuwp
+#    password: 123456
+#    role: admin
 #日志
 logging:
 # level:

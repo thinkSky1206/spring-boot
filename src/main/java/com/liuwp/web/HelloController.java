@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/login")
+    @RequestMapping("/login2")
     public String login(Model model) {
         model.addAttribute("msg","hello world");
         return "login";
