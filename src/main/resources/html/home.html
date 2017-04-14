@@ -57,13 +57,13 @@ desired effect
                 <span class="sr-only">Toggle navigation</span>
             </a>
             <ul class="nav navbar-nav">
-                <li><a href="">商品</a></li>
-                <li><a href="">订单</a></li>
-                <li><a href="">会员</a></li>
-                <li><a href="">运营</a></li>
-                <li><a href="">营销</a></li>
-                <li><a href="">商家</a></li>
-                <li><a href="">系统</a></li>
+                <li data-param="1"><a href="javascript:void(0);">商品</a></li>
+                <li data-param="2"><a href="javascript:void(0);">订单</a></li>
+                <li data-param="3"><a href="javascript:void(0);">会员</a></li>
+                <li><a href="javascript:void(0);">运营</a></li>
+                <li><a href="javascript:void(0);">营销</a></li>
+                <li><a href="javascript:void(0);">商家</a></li>
+                <li><a href="javascript:void(0);">系统</a></li>
             </ul>
 
             <!-- Navbar Right Menu -->
@@ -77,7 +77,7 @@ desired effect
                             <span class="label label-success">4</span>
                         </a>
                         <ul class="dropdown-menu">
-                             <li class="header">You have 4 messages</li>
+                            <li class="header">You have 4 messages</li>
                             <li>
                                 <!-- inner menu: contains the messages -->
                                 <ul class="menu">
@@ -114,7 +114,7 @@ desired effect
                             <span class="label label-warning">10</span>
                         </a>
                         <ul class="dropdown-menu">
-                           <li class="header">You have 10 notifications</li>
+                            <li class="header">You have 10 notifications</li>
                             <li>
                                 <!-- Inner Menu: contains the notifications -->
                                 <ul class="menu">
@@ -227,20 +227,24 @@ desired effect
         <section class="sidebar">
 
             <!-- Sidebar Menu -->
-            <ul class="sidebar-menu">
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>系统类目</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>品牌</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>会员</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">会员</a></li>
-                        <li><a href="#">会员等级</a></li>
-                    </ul>
-                </li>
+            <ul class="sidebar-menu" id="menu_1" style="display: none;">
+                <li><a href="#"><i class="fa fa-link"></i> <span>类别管理</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>商品类型</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>品牌管理</span></a></li>
+                <!-- <li class="treeview">
+                     <a href="#"><i class="fa fa-link"></i> <span>会员</span>
+                         <span class="pull-right-container">
+               <i class="fa fa-angle-right pull-right"></i>
+             </span>
+                     </a>
+                     <ul class="treeview-menu">
+                         <li><a href="#">会员</a></li>
+                         <li><a href="#">会员等级</a></li>
+                     </ul>
+                 </li>-->
+            </ul>
+            <ul class="sidebar-menu" id="menu_2" style="display: none;">
+                <li><a href="#"><i class="fa fa-link"></i> <span>系统类目</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -291,5 +295,30 @@ desired effect
 <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/plugins/adminlte/js/app.js"></script>
+<script type="application/javascript">
+    $(function () {
+        alert('haha');
+        initMenuEvent();
+    });
+
+    function initMenuEvent() {
+
+        $(".sidebar-menu li").on("click", function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+
+        $(".navbar-nav li").on("click", function () {
+            debugger;
+            var modules = $(this).data("param");
+            var menus = $("#menu_" + modules);
+            menus.show().siblings().hide();
+            menus.first().click();
+
+        });
+
+
+    }
+</script>
 </body>
 </html>
