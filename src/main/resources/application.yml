@@ -1,16 +1,16 @@
 spring:
 
-  h2:
-    console:
-      enabled: true
-      path: /h2
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
 
   #数据源
   datasource:
-    url: jdbc:h2:~/test
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
 
   #模板
   thymeleaf:
@@ -20,10 +20,14 @@ spring:
   devtools:
     livereload:
       enabled: true
-
+#      http://stackoverflow.com/questions/35895730/spring-boot-devtools-static-content-reloading-does-not-work-in-intellij
+#http://www.mkyong.com/spring-boot/intellij-idea-spring-boot-template-reload-is-not-working/
+#http://javabeat.net/spring-boot-devtools/
+#    restart:
+#      additional-paths: src/main/resources/html/
   #多坏境配置
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
 
   resources:
        static-locations: classpath:/html/,classpath:/static/
@@ -44,3 +48,7 @@ logging:
 # file: /application.log
 server:
   port: 9999
+
+mybatis:
+  mapper-locations: classpath:/config/*Mapper.xml
+  type-aliases-package: com.liuwup.model

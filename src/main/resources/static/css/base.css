@@ -1,0 +1,24 @@
+.main-header .sidebar-toggle {
+    color: #ffffff;
+    background-color: #367fa9;
+}
+
+.main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active {
+    background-color: #367fa9;
+}
+
+.main-header .navbar {
+    margin-left: 50px;
+}
+
+.content-header > .btn-toolbar {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
