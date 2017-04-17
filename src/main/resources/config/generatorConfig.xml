@@ -1,0 +1,48 @@
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="config/generate.properties"/>
+
+
+    <classPathEntry location="${jdbc.jarDirection}"/>
+
+
+    <context id="mysql" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="${modelPackage}" targetProject="${javaSrc}">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- xml的mapping配置 -->
+        <sqlMapGenerator targetPackage="${sqlMapperPackage}"  targetProject="${mapperSrc}">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${mapperPackage}"  targetProject="${javaSrc}">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table schema="test" tableName="menu" domainObjectName="Menu" ></table>
+
+
+    </context>
+</generatorConfiguration>
