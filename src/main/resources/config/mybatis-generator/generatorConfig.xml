@@ -3,7 +3,7 @@
 
 <generatorConfiguration>
 
-    <properties resource="config/generate.properties"/>
+    <properties resource="config/mybatis-generator/generate.properties"/>
 
 
     <classPathEntry location="${jdbc.jarDirection}"/>
@@ -22,26 +22,26 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
-        <javaTypeResolver >
-            <property name="forceBigDecimals" value="false" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
 
         <javaModelGenerator targetPackage="${modelPackage}" targetProject="${javaSrc}">
-            <property name="enableSubPackages" value="true" />
-            <property name="trimStrings" value="true" />
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- xml的mapping配置 -->
-        <sqlMapGenerator targetPackage="${sqlMapperPackage}"  targetProject="${mapperSrc}">
-            <property name="enableSubPackages" value="true" />
+        <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${mapperSrc}">
+            <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="${mapperPackage}"  targetProject="${javaSrc}">
-            <property name="enableSubPackages" value="true" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${mapperPackage}" targetProject="${javaSrc}">
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="test" tableName="menu" domainObjectName="Menu" ></table>
+        <table schema="test" tableName="menu" domainObjectName="Menu"></table>
 
 
     </context>

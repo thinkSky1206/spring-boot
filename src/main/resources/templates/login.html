@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<!--/*@thymesVar id="msg" type="java"*/-->
+<span th:text="'Message: ' + ${msg}"></span>
 <span th:text="'Message: ' + ${msg}"></span>
 </body>
 </html>
